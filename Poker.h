@@ -3,7 +3,7 @@
 #include<string>
 #include<iostream>
 using namespace std;
-class Poker 
+class Poker
 {
 private:
     int poker[53];     //撲克
@@ -18,8 +18,8 @@ public:
     string getPokerF();  //用字串的形式返回玩家的牌
     string getPokerL();  //用字串的形式返回莊家的牌
     int getPorker();
-    int getPorkerValue();
-    string getPorkerName();
-}
+    int getPorkerValue(int);
+    string getPorkerName(int);
+};
 
 #endif
