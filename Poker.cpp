@@ -51,12 +51,12 @@ int Poker::getPorker()
     return *poker;
 }
 
-int Poker::getPorkerValue()
+int Poker::getPorkerValue(int p)
 {
-    return *pokerValue;
+    return pokerValue[p];
 }
 
-string Poker::getPorkerName()
+string Poker::getPorkerName(int p)
 {
-    return  *pokerName;
+    return  pokerName[p];
 }
