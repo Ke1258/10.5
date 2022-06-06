@@ -1,5 +1,4 @@
 #include "Poker.h"
-
 Poker::Poker()
 {
     money = 500;
@@ -17,7 +16,7 @@ Poker::Poker()
     for (int i = 1; i <= 52; i++)
     {
         if (poker[i] <= 10)  pokerValue[i] = poker[i];
-        else              pokerValue[i] = 10;
+        else pokerValue[i] = 0.5;
     }
     pokerName[0] = "";
     for (int i = 0; i < 4; i++)
@@ -36,27 +35,52 @@ Poker::Poker()
         pokerName[12 + 13 * i] = "Q";
         pokerName[13 + 13 * i] = "K";
     }
+  
 }
 
 void Poker::inputBet()
 {
+    cout << "你現在有" << money << "元,請輸入賭注:";
+    do
+    {
+        cin >> bet;
+        if (bet > money)
+            cout << "笨蛋，你沒那麼多錢，少來，重新輸入吧:";
+    } while (bet > money);
 }
 
-void Poker::newGame()
+
+int Poker::getPorker(int p)
 {
+    return poker[p];
 }
 
-int Poker::getPorker()
-{
-    return *poker;
-}
-
-int Poker::getPorkerValue(int p)
+double Poker::getPorkerValue(int p)
 {
     return pokerValue[p];
+}
+
+int Poker::getmoney()
+{
+    return money;
 }
 
 string Poker::getPorkerName(int p)
 {
     return  pokerName[p];
 }
+
+int Poker::getbet()
+{
+    return bet;
+}
+
+void Poker::setbet(int b)
+{
+    bet = b;
+}
+void Poker::setmoney(int m)
+{
+    money = m;
+}
+
