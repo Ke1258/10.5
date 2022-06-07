@@ -28,27 +28,26 @@ double WonAndLose::getSumL()
 
 void WonAndLose::farmerAsk()
 {
-    if (getpokerNumF() == 5 && getSumF() == 10.5)
+    if (getpokerNumF() == 5 || getSumF() == 10.5)
     {
-        cout << "You win " << endl;
-        setmoney(getmoney() + getbet());
+        cout << "你贏了 double:"<< getbet() * 2 << endl;
+        setmoney(getmoney() + getbet()*2);
         inputBet();
         initPoker();
     }
     else {
         dealF();
-        cout << "Your point:" << getPokerF() << endl;
-        cout << getSumF()<<endl;
+        cout << "你的牌" << getPokerF() << endl;
         if (getSumF() > 10.5)
         {
-        cout << "You lose" << getbet() << "元" << endl;
+        cout << "你輸了" << getbet() << "元" << endl;
 
         setmoney(getmoney() - getbet());
 
         if (getmoney() <= 0)
         {
-            cout << "you over" << endl;
-     
+            cout << "你結束了" << endl;
+
             exit(0);
         }
         inputBet();
@@ -65,7 +64,7 @@ void WonAndLose::landlordAsk()
     {
         if (getSumF() > getSumL())
         {
-            cout << "point:" << getPokerL() << endl;
+            cout << "你的牌" << getPokerL() << endl;
             cout << "你贏了,你贏了" << getbet() << "元" << endl;
             
             setmoney(getmoney() + getbet());
@@ -112,9 +111,16 @@ void WonAndLose::landlordAsk()
     }
 }
 void WonAndLose::landlordProcess()
-{
+{   
+    if (getpokerNumF() == 5 || getSumF() == 10.5)
+    {
+        cout << "你贏了" << getbet() * 2 << endl;
+        setmoney(getmoney() + getbet() * 2);
+        inputBet();
+        initPoker();
+    }
  
-     if (getSumL() >= 5)
+    else if (getSumL() >= 7)
     {
         if (getSumL() > getSumF())
         {
