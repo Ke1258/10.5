@@ -85,7 +85,7 @@ void WonAndLose::landlordAsk()
             cout << "你輸了,你輸了" << Poker::getbet() << "元" << endl;
           
             setmoney(getmoney() -getbet());
-            if (getSumF() <= 0)
+            if (getmoney() <= 0)
             {
                 cout << "你已經輸光了，哈哈" << endl;
                 cout << "遊戲結束" << endl;
